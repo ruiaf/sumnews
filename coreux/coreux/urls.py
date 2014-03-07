@@ -4,6 +4,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^news/', include('news.urls')),
+    url(r'^$', 'coreux.sumnews.views.homepage', name='homepage'),
     url(r'^admin/', include(admin.site.urls)),
 )
