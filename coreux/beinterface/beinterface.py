@@ -1,12 +1,10 @@
 import socket
-import sys
 import pickle
 import logging
 
 class BackendInterface:
     @staticmethod
     def retrieve(request):
-        # Create a socket (SOCK_STREAM means a TCP socket)
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         try:

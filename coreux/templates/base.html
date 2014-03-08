@@ -1,37 +1,56 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static "/js/kickstart.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/kickstart.css" %}" media="all" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" media="all" />
     <title>Sum News</title>
 </head>
-<body>
+<body class=elements>
 
-<h1><a href="/">Sum News</a></h1>
-
-{% block auth %}
-<div>
+<nav class="navbar">
+<ul>
+    <li><a href="/"><span>Sum</span> News</a></li>
+</ul>
+<ul class="right">
+    {% block navcontent %}
     {% if user.is_authenticated %}
-        Welcome {{ user.username }} |
-        <a href="/logout/">Logout</a>
+        <li>Welcome <span>{{ user.username }}</span></li>
+        <li><a href="/logout/">Logout</a></li>
     {% else %}
-        <a href="/login/">Log In</a> |
-        <a href="/signup/">Sign up</a>
+        <li><a href="/login/">Log in</a></li>
+        <li><a href="/signup/">Sign up</a></li>
     {% endif %}
+    {% endblock %}
+</ul>
+</nav>
+
+<div class="callout clearfix" >
 </div>
-{% endblock %}
 
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <li{% if message.tags %} class="notice {{ message.tags }}"{% endif %}>{{ message }}</li>
     {% endfor %}
 </ul>
 {% endif %}
 
-{% block content %}
-<div>
-    Sorry, we were not able to load the template
+<div class="grid">
+    <div class="col_12">
+        {% block content %}
+        <div>
+            Sorry, we were not able to load the template
+        </div>
+        {% endblock %}
+    </div>
 </div>
-{% endblock %}
 
+<div class="clear"></div>
+<div id="footer">
+    © Copyright <a href="http://www.tupletype.com">Tuple Type</a> - All Rights Reserved</div>
 </body>
 </html>
