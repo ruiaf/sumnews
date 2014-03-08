@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block auth %}
+    <p>
+    <a href="/">Home</a>
+    {% if not user.is_authenticated %} | <a href="/login/">Log In</a> {% endif %}
+    </p>
+{% endblock %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+        You are already logged in and don't need to create an account.
+    {%  else %}
+
+        <div>
+        <form method="post" action=".">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Sign Up" />
+        </form>
+        </div>
+
+    {% endif %}
+{% endblock %}

@@ -4,9 +4,34 @@
     <title>Sum News</title>
 </head>
 <body>
-<h1>Sum News</h1>
-{% block content %}
-    Sorry, we were not able to load the template
+
+<h1><a href="/">Sum News</a></h1>
+
+{% block auth %}
+<div>
+    {% if user.is_authenticated %}
+        Welcome {{ user.username }} |
+        <a href="/logout/">Logout</a>
+    {% else %}
+        <a href="/login/">Log In</a> |
+        <a href="/signup/">Sign up</a>
+    {% endif %}
+</div>
 {% endblock %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% block content %}
+<div>
+    Sorry, we were not able to load the template
+</div>
+{% endblock %}
+
 </body>
 </html>

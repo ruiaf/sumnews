@@ -34,7 +34,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'coreux.sumnews',
+    'django.contrib.humanize',
+    'sumnews',
+    'registration'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,7 +58,7 @@ WSGI_APPLICATION = 'coreux.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'database/db.sqlite3'),
     }
 }
 
@@ -79,3 +81,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = ('./templates/',)
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'
