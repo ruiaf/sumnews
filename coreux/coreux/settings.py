@@ -85,3 +85,9 @@ TEMPLATE_DIRS = ('./templates/',)
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
+
+import logging
+if DEBUG:
+    logging.root.setLevel(logging.INFO)
+else:
+    logging.root.setLevel(logging.WARNING)
