@@ -13,8 +13,8 @@ class BackendInterface:
             response = pickle.loads(sock.recv(1024))
             response["result"] = "success"
             logging.info("Request: " + str(request) + " Response: " + str(response))
-            return response
-        finally:
             sock.close()
+        except:
+            return {"result": "error"}
 
-        return {"result": "error"}
+        return response
