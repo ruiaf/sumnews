@@ -2,3 +2,6 @@ install python 3.3
 install pycharm
 install git
 git clone https://github.com/ruiaf/sumnews.git
+download get-pip.py from http://www.pip-installer.org/en/latest/installing.html
+>python get-pip.py
+>pip install django
