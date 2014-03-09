@@ -25,5 +25,11 @@ class RequestProcessor(object):
                 "content": document_repository.recent_documents()
             }
 
+        if request['type'] == "search":
+            response = {
+                "result": "success",
+                "content": document_repository.search(request['query'])
+            }
+
         logging.info("Finished processing.")
         return response

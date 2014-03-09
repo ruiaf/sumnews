@@ -6,8 +6,8 @@ import socketserver
 import pickle
 import logging
 
-from .request_processor import RequestProcessor
-from . import settings
+from request_processor import RequestProcessor
+import settings
 
 
 class RequestListner(object):
@@ -33,10 +33,11 @@ class RequestListner(object):
 
 
 class RequestHandler(socketserver.BaseRequestHandler):
-    """
-    Handle a request
-    """
     def handle(self):
+        """
+        Handle a request
+        """
+
         # deserialize the request
         request_msg = pickle.loads(self.request.recv(settings.PACKET_MAX_SIZE))
 
