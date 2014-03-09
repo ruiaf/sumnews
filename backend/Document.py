@@ -1,6 +1,15 @@
+"""
+Represents and manages a news document
+"""
+
 from datetime import datetime
 
-class Document:
+
+class Document(object):
+    """
+    News document and its properties
+    """
+
     def __init__(self):
         self.title = ""
         self.content = ""
