@@ -1,10 +1,11 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="{% static "/js/kickstart.js" %}"></script>
+    <script src="{% static "js/kickstart.js" %}"></script>
+    <script src="{% static "js/searchbox.js" %}"></script>
     <link rel="stylesheet" href="{% static "css/kickstart.css" %}" media="all" />
     <link rel="stylesheet" href="{% static "css/style.css" %}" media="all" />
     <title>Sum News</title>
@@ -13,7 +14,7 @@
 
 <nav class="navbar">
 <ul>
-    <li><a href="/"><span>Sum</span> News from Istvan</a></li>
+    <li><a href="/"><span>Sum</span> News</a></li>
 </ul>
 <ul class="right">
     {% block navcontent %}
@@ -28,7 +29,16 @@
 </ul>
 </nav>
 
-<div class="callout clearfix" >
+<div class="callout callout-top clearfix" >
+    <ul id="searchbox">
+    <li>
+        <form id="searchform">
+            <input id="searchboxquery" type="text"/>
+            <input id="searchboxsumbmit" type="submit" style="display:none;"/>
+        </form>
+    </li>
+    <li><a href=""><i id="searchbutton" class="icon-2x icon-search" ></i></a></li>
+    </ul>
 </div>
 
 {% if messages %}
