@@ -2,6 +2,7 @@
   <dictionary name="ruiaf">
     <words>
       <w>deserialize</w>
+      <w>guid</w>
       <w>listner</w>
     </words>
   </dictionary>

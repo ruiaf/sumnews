@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dfa0eef-b8ff-42bd-a201-225440eaef35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/document_repository.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/feed_manager.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../tools/pylint.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/request_manager.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/request_processor.py" />
-      <change type="DELETED" beforePath="D:\projects\sumnews\backend\DocumentRepository.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\projects\sumnews\backend\FeedManager.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\projects\sumnews\backend\RequestProcessor.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\projects\sumnews\backend\SumNewsService.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/database/db.sqlite3" afterPath="$PROJECT_DIR$/../coreux/database/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend.py" afterPath="$PROJECT_DIR$/backend.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/../coreux/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/beinterface/beinterface.py" afterPath="$PROJECT_DIR$/../coreux/beinterface/beinterface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/document_repository.py" afterPath="$PROJECT_DIR$/document_repository.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/templates/news_list.html" afterPath="$PROJECT_DIR$/../coreux/templates/news_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/request_processor.py" afterPath="$PROJECT_DIR$/request_processor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../coreux/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/document.py" afterPath="$PROJECT_DIR$/document.py" />
+      <change type="MOVED" beforePath="D:\projects\sumnews\backend\feed_manager.py" afterPath="$PROJECT_DIR$/feedcrawler/feed_manager.py" />
     </list>
     <ignored path="backend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +22,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/backend$backend.coverage" NAME="backend Coverage Results" MODIFIED="1394384723550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend$backend.coverage" NAME="backend Coverage Results" MODIFIED="1394760799304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -40,22 +36,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="backend.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend.py">
+      <file leaf-file-name="feed_manager.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feedcrawler/feed_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="17" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="646">
+            <state line="33" column="28" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="680">
               <folding>
-                <element signature="e#393#430#0" expanded="true" />
+                <element signature="e#85#96#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/__init__.py">
+      <file leaf-file-name="feed.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/feedcrawler/feed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
-              <folding />
+            <state line="54" column="82" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.92786884" vertical-offset="352" max-vertical-offset="1275">
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,19 +61,28 @@
       <file leaf-file-name="document.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/document.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+            <state line="17" column="21" selection-start="304" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+              <folding>
+                <element signature="e#48#77#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feedcrawler/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="56" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feed_manager.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feed_manager.py">
+      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feedcrawler/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="18" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-              <folding>
-                <element signature="e#84#124#0" expanded="true" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,16 +90,16 @@
       <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+            <state line="10" column="35" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="request_manager.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="request_manager.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/request_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="11" selection-start="544" selection-end="544" vertical-scroll-proportion="0.6967213" vertical-offset="0" max-vertical-offset="935">
+            <state line="46" column="24" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="952">
               <folding>
                 <element signature="e#54#73#0" expanded="true" />
               </folding>
@@ -103,7 +110,7 @@
       <file leaf-file-name="request_processor.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/request_processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+            <state line="30" column="96" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="697">
               <folding />
             </state>
           </provider>
@@ -112,7 +119,18 @@
       <file leaf-file-name="document_repository.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/document_repository.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="33" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+            <state line="30" column="11" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+              <folding>
+                <element signature="e#34#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feedcrawler/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="66" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
               <folding />
             </state>
           </provider>
@@ -143,14 +161,22 @@
         <option value="$PROJECT_DIR$/backend_service.py" />
         <option value="$PROJECT_DIR$/be.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/document.py" />
         <option value="$PROJECT_DIR$/request_listner.py" />
-        <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/request_manager.py" />
         <option value="$PROJECT_DIR$/request_processor.py" />
         <option value="$PROJECT_DIR$/feed_manager.py" />
-        <option value="$PROJECT_DIR$/document_repository.py" />
+        <option value="$PROJECT_DIR$/feedmanager/__init__.py" />
         <option value="$PROJECT_DIR$/backend.py" />
-        <option value="$PROJECT_DIR$/request_manager.py" />
+        <option value="$PROJECT_DIR$/feedcrawler/feed_manager.py" />
+        <option value="$PROJECT_DIR$/feedcrawler/feed_settings.py" />
+        <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/document_repository.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/document.py" />
+        <option value="$USER_HOME$/.PyCharm30/system/python_stubs/1879517127/builtins.py" />
+        <option value="$PROJECT_DIR$/feedcrawler/utils.py" />
+        <option value="$PROJECT_DIR$/feedcrawler/settings.py" />
+        <option value="$PROJECT_DIR$/feedcrawler/feed.py" />
       </list>
     </option>
   </component>
@@ -223,6 +249,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="feedcrawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -244,6 +284,12 @@
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\sumnews\backend\feedcrawler" />
+      <recent name="D:\projects\sumnews\backend\feedmanager" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.backend">
     <configuration default="false" name="backend" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -458,25 +504,29 @@
       <created>1394301831603</created>
       <updated>1394301831603</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="search request on the backend">
+      <created>1394397883108</created>
+      <updated>1394397883108</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39936775" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -501,11 +551,12 @@
     <MESSAGE value="Simple backend" />
     <MESSAGE value="basic be architecture" />
     <MESSAGE value="setting up pylint and refactoring code" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting up pylint and refactoring code" />
+    <MESSAGE value="search request on the backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="search request on the backend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -513,7 +564,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <folding>
-            <element signature="e#393#430#0" expanded="true" />
+            <element signature="e#393#441#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -528,15 +579,17 @@
     <entry file="file://$PROJECT_DIR$/document.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
+          <folding>
+            <element signature="e#48#77#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feed_manager.py">
+    <entry file="file://$PROJECT_DIR$/feedcrawler/feed_manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="26" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="391">
           <folding>
-            <element signature="e#84#124#0" expanded="true" />
+            <element signature="e#85#96#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -558,7 +611,9 @@
     <entry file="file://$PROJECT_DIR$/document_repository.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="13" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="255">
-          <folding />
+          <folding>
+            <element signature="e#34#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -566,7 +621,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="0" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="663">
           <folding>
-            <element signature="e#393#430#0" expanded="true" />
+            <element signature="e#393#441#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -594,7 +649,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../setup.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="212" selection-end="212" vertical-scroll-proportion="0.17435898" vertical-offset="0" max-vertical-offset="585" />
+        <state line="6" column="19" selection-start="212" selection-end="212" vertical-scroll-proportion="0.17435898" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../coreux/templates/base.html">
@@ -604,24 +661,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/1879517127/builtins.py">
+    <entry file="file://$PROJECT_DIR$/backend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4456" column="8" selection-start="153307" selection-end="153307" vertical-scroll-proportion="0.3327869" vertical-offset="75549" max-vertical-offset="95778">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/request_processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="595" selection-end="595" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <folding />
+        <state line="25" column="28" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
+          <folding>
+            <element signature="e#393#441#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -632,43 +677,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="17" selection-start="625" selection-end="625" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="646">
-          <folding>
-            <element signature="e#393#430#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/document.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/document_repository.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="33" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+        <state line="30" column="11" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <folding>
+            <element signature="e#34#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm30/system/python_stubs/1879517127/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2724" column="20" selection-start="95465" selection-end="95465" vertical-scroll-proportion="0.3327869" vertical-offset="46105" max-vertical-offset="95778">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feed_manager.py">
+    <entry file="file://$PROJECT_DIR$/feedcrawler/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="18" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-          <folding>
-            <element signature="e#84#124#0" expanded="true" />
-          </folding>
+        <state line="6" column="66" selection-start="174" selection-end="174" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="35" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/request_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="11" selection-start="544" selection-end="544" vertical-scroll-proportion="0.6967213" vertical-offset="0" max-vertical-offset="935">
+        <state line="46" column="24" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="952">
           <folding>
             <element signature="e#54#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/request_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="96" selection-start="750" selection-end="750" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feedcrawler/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/document.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="21" selection-start="304" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <folding>
+            <element signature="e#48#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feedcrawler/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="56" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feedcrawler/feed_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="28" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="680">
+          <folding>
+            <element signature="e#85#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feedcrawler/feed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="82" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.92786884" vertical-offset="352" max-vertical-offset="1275">
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>

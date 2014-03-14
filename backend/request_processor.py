@@ -22,13 +22,13 @@ class RequestProcessor(object):
         if request['type'] == "latest_news":
             response = {
                 "result": "success",
-                "content": document_repository.recent_documents()
+                "content": [doc.__dict__ for doc in document_repository.recent_documents()]
             }
 
         if request['type'] == "search":
             response = {
                 "result": "success",
-                "content": document_repository.search(request['query'])
+                "content": [doc.__dict__ for doc in document_repository.search(request['query'])]
             }
 
         logging.info("Finished processing.")

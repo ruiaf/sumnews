@@ -4,6 +4,7 @@ Store for news documents
 
 import threading
 import itertools
+import heapq
 
 
 class DocumentRepository(object):
@@ -20,16 +21,16 @@ class DocumentRepository(object):
         Add a list of documents to the repository
         """
         self.lock.acquire()
-        self.documents.extend(document_list)
+        for doc in document_list:
+            heapq.heappush(self.documents, doc)
         self.lock.release()
 
     def recent_documents(self, count=10):
         """
         Retrieve the count most recent documents
         """
-        count = min(count, len(self.documents))
         self.lock.acquire()
-        recent_docs = self.documents[:count]
+        recent_docs = heapq.nlargest(count, self.documents)
         self.lock.release()
         return recent_docs
 
@@ -44,5 +45,5 @@ class DocumentRepository(object):
 
     def __findall(self, query):
         for doc in self.documents:
-            if query in doc["title"] or query in doc["content"]:
+            if query in doc.title or query in doc.content:
                 yield doc
