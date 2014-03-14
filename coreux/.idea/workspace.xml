@@ -2,18 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4610693-99f9-4c0a-8dc1-3283436577c3" name="Default" comment="search">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/staticfiles/js/searchbox.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/backend.py" afterPath="$PROJECT_DIR$/../backend/backend.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/document_repository.py" afterPath="$PROJECT_DIR$/../backend/document_repository.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/request_manager.py" afterPath="$PROJECT_DIR$/../backend/request_manager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/request_processor.py" afterPath="$PROJECT_DIR$/../backend/request_processor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staticfiles/css/style.css" afterPath="$PROJECT_DIR$/staticfiles/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coreux/urls.py" afterPath="$PROJECT_DIR$/coreux/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sumnews/views.py" afterPath="$PROJECT_DIR$/sumnews/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../backend/.idea/workspace.xml" />
+    </list>
+    <list id="b58713e9-45f4-45d4-944d-5c64da065dcd" name="Failed commit: Default" comment="search">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../backend/feedcrawler/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../backend/feedcrawler/feed.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../backend/feedcrawler/settings.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../backend/feedcrawler/utils.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/backend.py" afterPath="$PROJECT_DIR$/../backend/backend.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/beinterface/beinterface.py" afterPath="$PROJECT_DIR$/beinterface/beinterface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/document_repository.py" afterPath="$PROJECT_DIR$/../backend/document_repository.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/news_list.html" afterPath="$PROJECT_DIR$/templates/news_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/request_processor.py" afterPath="$PROJECT_DIR$/../backend/request_processor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../backend/settings.py" afterPath="$PROJECT_DIR$/../backend/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../setup.txt" afterPath="$PROJECT_DIR$/../setup.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\projects\sumnews\coreux\templates\homepage.html" afterPath="$PROJECT_DIR$/templates/news_list.html" />
+      <change type="MOVED" beforePath="D:\projects\sumnews\backend\feed_manager.py" afterPath="$PROJECT_DIR$/../backend/feedcrawler/feed_manager.py" />
     </list>
     <ignored path="coreux.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,10 +44,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sumnews/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="news_list.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/news_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="43" selection-start="322" selection-end="322" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="289">
+            <state line="16" column="43" selection-start="784" selection-end="784" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="442">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sumnews/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
               <folding />
             </state>
           </provider>
@@ -55,17 +77,6 @@
             <state line="5" column="0" selection-start="65" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7310">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="78" selection-start="1186" selection-end="1186" vertical-scroll-proportion="-11.769231" vertical-offset="306" max-vertical-offset="1207">
-              <folding>
-                <element signature="n#style#0;n#input#1;n#form#0;n#li#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,7 +96,7 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coreux/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="31" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+            <state line="14" column="43" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -96,7 +107,7 @@
       <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/coreux/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="15" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.27540985" vertical-offset="1090" max-vertical-offset="1700">
+            <state line="82" column="1" selection-start="2040" selection-end="2040" vertical-scroll-proportion="0.49836066" vertical-offset="1090" max-vertical-offset="1700">
               <folding />
             </state>
           </provider>
@@ -105,7 +116,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/registration/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="20" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+            <state line="27" column="20" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
               <folding>
                 <element signature="e#0#53#0" expanded="true" />
               </folding>
@@ -160,12 +171,13 @@
         <option value="$PROJECT_DIR$/templates/registration/signup.html" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/templates/homepage.html" />
-        <option value="$PROJECT_DIR$/beinterface/beinterface.py" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/staticfiles/js/searchbox.js" />
         <option value="$PROJECT_DIR$/staticfiles/css/style.css" />
         <option value="$PROJECT_DIR$/coreux/urls.py" />
         <option value="$PROJECT_DIR$/sumnews/views.py" />
+        <option value="$PROJECT_DIR$/beinterface/beinterface.py" />
+        <option value="$PROJECT_DIR$/templates/news_list.html" />
       </list>
     </option>
   </component>
@@ -278,6 +290,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="coreux" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coreux" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coreux" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="beinterface" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,13 +595,18 @@
       <created>1394301751972</created>
       <updated>1394301751972</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="search box">
+      <created>1394397842903</created>
+      <updated>1394397842903</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -585,13 +616,12 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36354056" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982087" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32982087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -616,7 +646,9 @@
     <MESSAGE value="client-server communication and logging" />
     <MESSAGE value="css" />
     <MESSAGE value="update be interface" />
-    <option name="LAST_COMMIT_MESSAGE" value="update be interface" />
+    <MESSAGE value="search box" />
+    <MESSAGE value="search" />
+    <option name="LAST_COMMIT_MESSAGE" value="search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -628,7 +660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="391">
           <folding>
-            <element signature="e#0#13#0" expanded="false" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -676,7 +708,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
           <folding>
-            <element signature="e#0#13#0" expanded="false" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -758,16 +790,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sumnews/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sumnews/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610" />
-      </provider>
-    </entry>
     <entry file="file://C:/Program Files/Python/Lib/site-packages/django/conf/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="131" column="34" selection-start="5072" selection-end="5072" vertical-scroll-proportion="0.3622951" vertical-offset="2006" max-vertical-offset="3468" />
@@ -814,15 +836,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/beinterface/beinterface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="12" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <folding>
-            <element signature="e#0#13#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/web-forms2.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="290" column="16" selection-start="6710" selection-end="6710" vertical-scroll-proportion="0.3327869" vertical-offset="4727" max-vertical-offset="13838">
@@ -839,15 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="78" selection-start="1186" selection-end="1186" vertical-scroll-proportion="-11.769231" vertical-offset="306" max-vertical-offset="1207">
-          <folding>
-            <element signature="n#style#0;n#input#1;n#form#0;n#li#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/staticfiles/js/searchbox.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
@@ -857,9 +861,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/registration/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="20" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+        <state line="27" column="20" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
           <folding>
             <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="8" selection-start="1221" selection-end="1286" vertical-scroll-proportion="-7.8461537" vertical-offset="459" max-vertical-offset="1207">
+          <folding>
+            <element signature="n#style#0;n#input#1;n#form#0;n#li#0;n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -871,9 +884,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/news_list.html">
+    <entry file="file://$PROJECT_DIR$/beinterface/beinterface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="43" selection-start="322" selection-end="322" vertical-scroll-proportion="-5.230769" vertical-offset="0" max-vertical-offset="289">
+        <state line="12" column="57" selection-start="343" selection-end="343" vertical-scroll-proportion="0.33442622" vertical-offset="0" max-vertical-offset="610">
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sumnews/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sumnews/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="153">
           <folding />
         </state>
       </provider>
@@ -887,9 +916,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/news_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="43" selection-start="784" selection-end="784" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/coreux/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="31" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+        <state line="14" column="43" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
@@ -898,7 +934,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/coreux/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="15" selection-start="1933" selection-end="1933" vertical-scroll-proportion="0.27540985" vertical-offset="1090" max-vertical-offset="1700">
+        <state line="82" column="1" selection-start="2040" selection-end="2040" vertical-scroll-proportion="0.49836066" vertical-offset="1090" max-vertical-offset="1700">
           <folding />
         </state>
       </provider>
