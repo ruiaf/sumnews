@@ -10,11 +10,17 @@ class BackendInterface:
         try:
             sock.connect(("localhost", 8001))
             sock.sendall(pickle.dumps(request))
-            response = pickle.loads(sock.recv(2000 * 1024))
+            data = []
+            buffer = sock.recv(1024)
+            while buffer:
+                data.append(buffer)
+                buffer = sock.recv(1024)
+            response = pickle.loads(bytes().join(data))
             response["result"] = "success"
             logging.info("Request: " + str(request) + " Response: " + str(response))
             sock.close()
-        except:
+        except ValueError as inst:
+            logging.error(inst)
             return {"result": "error"}
 
         return response
