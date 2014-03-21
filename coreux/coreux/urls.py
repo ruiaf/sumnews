@@ -7,7 +7,8 @@ from sumnews.views import *
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', homepage),
+    url(r'^$', clusters),
+    url(r'^latest/$', latest),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),

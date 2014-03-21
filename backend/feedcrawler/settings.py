@@ -14,8 +14,10 @@ FEEDS = [
         "url": "http://feeds.reuters.com/reuters/topNews",
     },
     {
-        "name": "Independent",
+        "name": "The Independent",
         "url": "http://www.independent.co.uk/?service=Rss",
+        "timezone": tz.tzoffset("CET", 4*60*60),
+        "force_timezone": True
     },
     {
         "name": "NPR",

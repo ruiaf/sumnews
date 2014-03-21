@@ -2,16 +2,20 @@
 {% load humanize %}
 
 {% block content %}
-                {% for news in news_list %}
-                <article class="post clearfix">
-                    <div class="meta">{{news.publish_date|naturaltime}}</div>
-                    <h4>{{news.title}}</h4>
-                    <p>{{news.content}} &mdash; from <a href="{{news.source_url}}">{{ news.provider }}</a></p>
+                {% for cluster in cluster_list %}
+                    <article class="post clearfix">
+                    {% for news in cluster %}
+                        {% if forloop.first %}
+                            <div class="meta">{{news.publish_date|naturaltime}}</div>
+                            <h4>{{news.title}}</h4>
+                        {% endif %}
+                        <p>{{news.content}} &mdash; from <a href="{{news.source_url}}">{{ news.provider }}</a></p>
+                    {% endfor %}
 
                     <a href=""><i class="icon-2x icon-facebook-sign" ></i></a>
                     <a href=""><i class="icon-2x icon-twitter-sign" ></i></a>
                     <a href=""><i class="icon-2x icon-google-plus-sign" ></i></a>
-                </article>
+                    </article>
                 {% empty %}
                 <article class="post clearfix">
                     <h4>Unable to find</h4>

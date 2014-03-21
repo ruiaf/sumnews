@@ -4,9 +4,10 @@ from http import client
 from xml.etree import ElementTree
 import logging
 import hashlib
+
 from dateutil import parser as dateparser, tz
 
-from document import Document
+from documents.document import Document
 from feedcrawler.utils import strip_html
 
 

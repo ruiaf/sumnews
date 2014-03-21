@@ -7,9 +7,10 @@ It initialized the following main components:
     SumNewsService: Responsible for processing requests coming from the coreux
 """
 
-from feedcrawler.feed_manager import FeedManager
-from document_repository import DocumentRepository
 from request_manager import RequestListner
+from state_manager import StateManager
+import settings
+
 
 
 class BackendService(object):
@@ -22,10 +23,9 @@ class BackendService(object):
         """
         Start the Backend service
         """
-        repository = DocumentRepository()
-        feeds = FeedManager(repository)
-        feeds.start()
-        listner = RequestListner(repository)
+        state = StateManager(settings.STATE_FILE)
+        state.start()
+        listner = RequestListner(state.repository)
         listner.start()
 
 if __name__ == "__main__":
