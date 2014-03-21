@@ -83,5 +83,21 @@ class TestSimilarityDistance(unittest.TestCase):
         logging.info("tf_idf of \"russia\": %2.5f", self.state.repository.index.tf_idf("russia"))
         self.assertLess(distance, 0.15)
 
+    def test_similar_docs_complex(self):
+        doc1 = Document()
+        doc2 = Document()
+        doc1.title = "Fred Phelps, Head Of Westboro Baptist Church, Dies"
+        doc1.content = "Fred Phelps, anti-gay activist and patriarch of the Westboro Baptist Church, has died at age 84. Frank Morris of KCUR reports on the interesting past of one of the most reviled men in America. "
+        doc2.title = "Westboro Baptist Church Says Leader Fred Phelps 'Has Gone The Way of All Flesh'"
+        doc2.content = "The Bible-thumping, anti-gay preacher was known for picketing funerals."
+        distance = self.state.repository.clustering.comparator.similarity(doc1, doc2)
+        for word in doc1.words() & doc2.words():
+            logging.info("tf_idf of \"%s\": %2.5f", word, self.state.repository.index.tf_idf(word))
+
+        for word in doc1.words() ^ doc2.words():
+            logging.info("tf_idf of non intersection \"%s\": %2.5f", word, self.state.repository.index.tf_idf(word))
+        logging.info("Similarity is %2.2f", distance)
+        self.assertGreater(distance, 0.15)
+
 if __name__ == '__main__':
     unittest.main()
