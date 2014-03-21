@@ -75,8 +75,6 @@ class ClusterMaker(threading.Thread):
                                 self.comparator.similarity(self.documents[i], self.documents[k_prime]),
                                 k_prime) for k_prime in range(len(self.documents)))
 
-            self.exemplars[self.documents[i]] = self.documents[values[0][1]]
-
             for k in range(len(self.documents)):
                 sim = self.comparator.similarity(self.documents[i], self.documents[k])
                 max_value = next(x[0] for x in values if x[1] != k)
@@ -97,6 +95,12 @@ class ClusterMaker(threading.Thread):
 
             self.availability[k][k] = settings.CLUSTERING_DUMPING_FACTOR * self.availability[k].get(k, 0.0) +\
                                       (1 - settings.CLUSTERING_DUMPING_FACTOR) * (sum_value - max(0.0, self.responsibility[k].get(k, 0.0)))
+
+        for i in range(len(self.documents)):
+            exemplar = max((self.availability[i][k_prime] + self.responsibility[i][k_prime], k_prime)
+                                 for k_prime in range(len(self.documents)))
+
+            self.exemplars[self.documents[i]] = self.documents[exemplar[1]]
 
         self.lock.release()
 
