@@ -30,5 +30,5 @@ class Document(object):
     def words(self):
             if self._words is None:
                 self._words = set(w.lower().strip() for w in re.findall(r"[\w]+", self.content))
-                self._words.union(w.lower().strip() for w in re.findall(r"[\w]+", self.title))
+                self._words |= set(w.lower().strip() for w in re.findall(r"[\w]+", self.title))
             return self._words
