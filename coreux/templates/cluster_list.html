@@ -7,7 +7,7 @@
                     {% for news in cluster %}
                         {% if forloop.first %}
                             <div class="meta">{{news.publish_date|naturaltime}}</div>
-                            <h4>{{news.title}}</h4>
+                            <h4><a href="/article/{{ news.guid }}/">{{news.title}}</a></h4>
                         {% endif %}
                         <p>{{news.content}} &mdash; from <a href="{{news.source_url}}">{{ news.provider }}</a></p>
                     {% endfor %}

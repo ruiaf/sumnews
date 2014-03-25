@@ -46,8 +46,8 @@ class DocumentRepository(object):
         recent_docs = heapq.nlargest(count*10, self.documents)
         clusters = {}
         for doc in recent_docs:
-            if doc in self.clustering.exemplars:
-                representative = self.clustering.exemplars[doc]
+            if doc.exemplar:
+                representative = doc.exemplar
             else:
                 representative = doc
             cluster = clusters.get(representative, [])
@@ -75,8 +75,8 @@ class DocumentRepository(object):
         retrieved_docs = self.index.search(keywords, count)
         clusters = {}
         for doc in retrieved_docs:
-            if doc in self.clustering.exemplars:
-                representative = self.clustering.exemplars[doc]
+            if doc.exemplar:
+                representative = doc.exemplar
             else:
                 representative = doc
             cluster = clusters.get(representative, [])
@@ -87,6 +87,13 @@ class DocumentRepository(object):
         clusters.sort(reverse=True)
         clusters = clusters[:count]
         return [value for (x, value) in clusters]
+
+    def search_guid(self, guid):
+        """
+        Retrieve count clusters matching the query
+        """
+
+        return self.index.get(guid)
 
     def rebuild(self):
         logging.info("Rebuilding index")

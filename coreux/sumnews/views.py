@@ -20,3 +20,10 @@ def search(request, query):
     response = BackendInterface.retrieve({"type": "search_clusters", "query": query})
     context = RequestContext(request, {'cluster_list': response["content"]})
     return render(request, 'cluster_list.html', context)
+
+def article(request, guid):
+    if guid is None or len(guid.strip()) == 0:
+        return HttpResponseRedirect("/")
+    response = BackendInterface.retrieve({"type": "search_guid", "guid": guid})
+    context = RequestContext(request, response["content"])
+    return render(request, 'article.html', context)

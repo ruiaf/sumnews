@@ -24,7 +24,7 @@ class RequestProcessor(object):
         if request['type'] == "latest_news":
             response = {
                 "result": "success",
-                "content": [doc.__dict__ for doc in document_repository.recent_documents()]
+                "content": [doc.as_dictionary() for doc in document_repository.recent_documents()]
             }
 
         if request['type'] == "latest_clusters":
@@ -32,7 +32,7 @@ class RequestProcessor(object):
             for cluster in document_repository.recent_clusters():
                 result = []
                 for doc in cluster:
-                    result.append(doc.__dict__)
+                    result.append(doc.as_dictionary())
                 results.append(result)
 
             response = {
@@ -45,7 +45,7 @@ class RequestProcessor(object):
             for cluster in document_repository.search_clusters(request['query']):
                 result = []
                 for doc in cluster:
-                    result.append(doc.__dict__)
+                    result.append(doc.as_dictionary())
                 results.append(result)
 
             response = {
@@ -56,8 +56,25 @@ class RequestProcessor(object):
         if request['type'] == "search":
             response = {
                 "result": "success",
-                "content": [doc.__dict__ for doc in document_repository.search(request['query'])]
+                "content": [doc.as_dictionary() for doc in document_repository.search(request['query'])]
             }
+
+        if request['type'] == "search_guid":
+            doc = document_repository.search_guid(request['guid'])
+            if not doc:
+                return response
+            response = {
+                "result": "success",
+                "content": {
+                    'article': doc.as_dictionary(),
+                    'children': [c.as_dictionary() for c in doc.children],
+                }
+            }
+
+            if doc.exemplar != doc:
+                response['content']['parent'] = doc.exemplar.as_dictionary()
+                response['content']['siblings'] = [s.as_dictionary() for s in doc.exemplar.children]
+
 
         te = time.time()
         logging.info("Finished processing after %2.2f ms.", (te-ts)*1000)

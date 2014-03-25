@@ -16,7 +16,6 @@ class BackendInterface:
                 data.append(buffer)
                 buffer = sock.recv(1024)
             response = pickle.loads(bytes().join(data))
-            response["result"] = "success"
             logging.info("Request: " + str(request) + " Response: " + str(response))
             sock.close()
         except ValueError as inst:

@@ -12,7 +12,6 @@ class ClusterMaker(threading.Thread):
         self.documents = []
         self.responsibility = {}
         self.availability = {}
-        self.exemplars = {}
         self.lock = threading.Lock()
         self.add_list = []
         self.add_list_lock = threading.Lock()
@@ -44,7 +43,6 @@ class ClusterMaker(threading.Thread):
         self.documents = []
         self.responsibility = {}
         self.availability = {}
-        self.exemplars = {}
         self.add_list = []
         self.lock.release()
         self.add_list_lock.release()
@@ -97,26 +95,20 @@ class ClusterMaker(threading.Thread):
                                       (1 - settings.CLUSTERING_DUMPING_FACTOR) * (sum_value - max(0.0, self.responsibility[k].get(k, 0.0)))
 
         for i in range(len(self.documents)):
-            exemplar = max((self.availability[i][k_prime] + self.responsibility[i][k_prime], k_prime)
-                                 for k_prime in range(len(self.documents)))
+            if self.documents[i].exemplar != self.documents[i]:
+                self.documents[i].exemplar.children.remove(self.documents[i])
 
-            self.exemplars[self.documents[i]] = self.documents[exemplar[1]]
+            exemplar = max((self.availability[i][k_prime] + self.responsibility[i][k_prime], k_prime)
+                           for k_prime in range(len(self.documents)))
+
+            self.documents[i].exemplar = self.documents[exemplar[1]]
+            self.documents[i].responsibility_parent = self.responsibility[i][exemplar[1]]
+            self.documents[i].availability_parent = self.availability[i][exemplar[1]]
+            self.documents[i].similarity_parent = self.comparator.similarity(self.documents[i], self.documents[exemplar[1]])
+            if self.documents[i].exemplar != self.documents[i]:
+                self.documents[i].exemplar.children.append(self.documents[i])
 
         self.lock.release()
-
-    def debug(self, doc):
-        doc_index = self.documents.index(doc)
-        exemplar_index = self.documents.index(self.exemplars[doc])
-        print("----------------------------------------------------------------------------------------------------")
-        print("Document: %s" % doc.title)
-        print("Exemplar: %s" % self.exemplars[doc].title)
-        print("Self-Availability %2.2f" % self.availability[doc_index][doc_index])
-        print("Self-Responsibility %2.2f" % self.responsibility[doc_index][doc_index])
-        if doc_index != exemplar_index:
-            print("Document-Exemplar similarity %2.2f" % self.comparator.similarity(doc, self.exemplars[doc]))
-            print("Exemplar-Availability %2.2f" % self.availability[doc_index][exemplar_index])
-            print("Exemplar-Responsibility %2.2f" % self.responsibility[doc_index][exemplar_index])
-
 
 class DocComparator(object):
     def __init__(self, inverted_index):

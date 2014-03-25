@@ -5,7 +5,7 @@
                 {% for news in news_list %}
                 <article class="post clearfix">
                     <div class="meta">{{news.publish_date|naturaltime}}</div>
-                    <h4>{{news.title}}</h4>
+                    <h4><a href="/article/{{ news.guid }}/">{{news.title}}</a></h4>
                     <p>{{news.content}} &mdash; from <a href="{{news.source_url}}">{{ news.provider }}</a></p>
 
                     <a href=""><i class="icon-2x icon-facebook-sign" ></i></a>

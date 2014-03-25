@@ -6,7 +6,7 @@ import logging
 
 NEWS_SERVICE_HOST = ""
 NEWS_SERVICE_PORT = 8001
-PACKET_MAX_SIZE = 1024
+PACKET_MAX_SIZE = 20024
 
 STATE_FILE = "database/state.pickle"
 

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+
+                <article class="post clearfix">
+                    <div class="meta">{{article.publish_date|naturaltime}}</div>
+                    <h4><a href="/article/{{ article.guid }}/">{{article.title}}</a></h4>
+                    <p>{{article.content}} &mdash; from <a href="{{article.source_url}}">{{ article.provider }}</a></p>
+
+                    <ul>
+                        {% for key, value in article.debug.items %}
+                            <li>{{ key }}: {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href=""><i class="icon-2x icon-facebook-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-twitter-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-google-plus-sign" ></i></a>
+                </article>
+
+                {% if parent %}
+                <h3>Parent</h3>
+                <article class="post clearfix">
+                    <div class="meta">{{parent.publish_date|naturaltime}}</div>
+                    <h4><a href="/article/{{ parent.guid }}/">{{parent.title}}</a></h4>
+                    <p>{{parent.content}} &mdash; from <a href="{{parent.source_url}}">{{ parent.provider }}</a></p>
+
+                    <ul>
+                        {% for key, value in parent.debug.items %}
+                            <li>{{ key }}: {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href=""><i class="icon-2x icon-facebook-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-twitter-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-google-plus-sign" ></i></a>
+                </article>
+                {% endif %}
+
+                {% if children %}
+                <h3>Children</h3>
+                {% for news in children %}
+                <article class="post clearfix">
+                    <div class="meta">{{news.publish_date|naturaltime}}</div>
+                    <h4><a href="/article/{{ news.guid }}/">{{news.title}}</a></h4>
+                    <p>{{news.content}} &mdash; from <a href="{{news.source_url}}">{{ news.provider }}</a></p>
+
+                    <ul>
+                        {% for key, value in news.debug.items %}
+                            <li>{{ key }}: {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href=""><i class="icon-2x icon-facebook-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-twitter-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-google-plus-sign" ></i></a>
+                </article>
+                {% endfor %}
+                {% endif %}
+
+                {% if siblings %}
+                <h3>Siblings</h3>
+                {% for news in siblings %}
+                <article class="post clearfix">
+                    <div class="meta">{{news.publish_date|naturaltime}}</div>
+                    <h4><a href="/article/{{ news.guid }}/">{{news.title}}</a></h4>
+                    <p>{{news.content}} &mdash; from <a href="{{news.source_url}}">{{ news.provider }}</a></p>
+
+                    <ul>
+                        {% for key, value in news.debug.items %}
+                            <li>{{ key }}: {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                    <a href=""><i class="icon-2x icon-facebook-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-twitter-sign" ></i></a>
+                    <a href=""><i class="icon-2x icon-google-plus-sign" ></i></a>
+                </article>
+                {% endfor %}
+                {% endif %}
+{% endblock %}
