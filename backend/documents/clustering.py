@@ -26,10 +26,23 @@ class ClusterMaker(threading.Thread):
         self.add_list_lock.acquire()
         self.lock.acquire()
 
+        ts = time.time()
         for doc in self.add_list:
             self.documents.append(doc)
-            self.responsibility[len(self.documents) - 1] = {}
-            self.availability[len(self.documents) - 1] = {}
+            self.responsibility[doc] = {}
+            self.availability[doc] = {}
+            self.responsibility[doc][doc] = 0.0
+            self.availability[doc][doc] = 0.0
+            for other_doc in self.documents:
+                if self.comparator.similarity(doc, other_doc) >= settings.CLUSTERING_MINIMUM_SIMILARITY:
+                    self.responsibility[doc][other_doc] = 0.0
+                    self.availability[doc][other_doc] = 0.0
+                    self.responsibility[other_doc][doc] = 0.0
+                    self.availability[other_doc][doc] = 0.0
+
+        te = time.time()
+        if len(self.add_list):
+            logging.info("Finished adding %d documents to clustering in %2.2f seconds", len(self.add_list), te - ts)
 
         self.add_list = []
         self.add_list_lock.release()
@@ -68,45 +81,52 @@ class ClusterMaker(threading.Thread):
 
     def _iterate_affinity(self):
         self.lock.acquire()
-        for i in range(len(self.documents)):
-            values = utils.max2((self.availability[i].get(k_prime, 0.0) +
-                                self.comparator.similarity(self.documents[i], self.documents[k_prime]),
-                                k_prime) for k_prime in range(len(self.documents)))
+        for i in self.documents:
+            values = utils.max2((self.availability[i][k_prime] + self.comparator.similarity(i, k_prime),
+                                k_prime) for k_prime in self.responsibility[i].keys())
 
-            for k in range(len(self.documents)):
-                sim = self.comparator.similarity(self.documents[i], self.documents[k])
-                max_value = next(x[0] for x in values if x[1] != k)
-                self.responsibility[i][k] = settings.CLUSTERING_DUMPING_FACTOR * self.responsibility[i].get(k, 0.0) +\
-                                            (1 - settings.CLUSTERING_DUMPING_FACTOR) * (sim - max_value)
+            for k in self.responsibility[i].keys():
+                sim = self.comparator.similarity(i, k)
 
-        for k in range(len(self.documents)):
+                max_value = values[0][0]
+                if values[0][1] is k:
+                    if len(values) > 2: max_value = values[1][0]
+                    else: max_value = 0.0
+
+                self.responsibility[i][k] = ((settings.CLUSTERING_DUMPING_FACTOR * self.responsibility[i][k]) +
+                                             (1 - settings.CLUSTERING_DUMPING_FACTOR) * (sim - max_value))
+
+        for k in self.documents:
             sum_value = 0.0
-            for i_prime in range(len(self.documents)):
-                sum_value += max(0.0, self.responsibility[i_prime].get(k, 0.0))
+            for i_prime in self.responsibility[k].keys():
+                sum_value += max(0.0, self.responsibility[i_prime][k])
 
-            for i in range(len(self.documents)):
-                self.availability[i][k] = settings.CLUSTERING_DUMPING_FACTOR * self.availability[i].get(k, 0.0) + \
-                                          (1 - settings.CLUSTERING_DUMPING_FACTOR) * min(0.0, self.responsibility[k].get(k, 0.0) +
-                                                                                         sum_value -
-                                                                                         max(0.0, self.responsibility[i].get(k, 0.0)) -
-                                                                                         max(0.0, self.responsibility[k].get(k, 0.0)))
+            for i in self.responsibility[k].keys():
+                self.availability[i][k] = (settings.CLUSTERING_DUMPING_FACTOR * self.availability[i][k] +
+                                           (1 - settings.CLUSTERING_DUMPING_FACTOR) *
+                                           min(0.0, (self.responsibility[k][k] +
+                                                     sum_value -
+                                                     max(0.0, self.responsibility[i][k]) -
+                                                     max(0.0, self.responsibility[k][k]))))
 
-            self.availability[k][k] = settings.CLUSTERING_DUMPING_FACTOR * self.availability[k].get(k, 0.0) +\
-                                      (1 - settings.CLUSTERING_DUMPING_FACTOR) * (sum_value - max(0.0, self.responsibility[k].get(k, 0.0)))
+            self.availability[k][k] = ((settings.CLUSTERING_DUMPING_FACTOR *
+                                        self.availability[k][k]) +
+                                       ((1 - settings.CLUSTERING_DUMPING_FACTOR) *
+                                        (sum_value - max(0.0, self.responsibility[k][k]))))
 
-        for i in range(len(self.documents)):
-            if self.documents[i].exemplar != self.documents[i]:
-                self.documents[i].exemplar.children.remove(self.documents[i])
+        for i in self.documents:
+            if not i.exemplar is i:
+                i.exemplar.children.remove(i)
 
             exemplar = max((self.availability[i][k_prime] + self.responsibility[i][k_prime], k_prime)
-                           for k_prime in range(len(self.documents)))
+                           for k_prime in self.availability[i].keys())
 
-            self.documents[i].exemplar = self.documents[exemplar[1]]
-            self.documents[i].responsibility_parent = self.responsibility[i][exemplar[1]]
-            self.documents[i].availability_parent = self.availability[i][exemplar[1]]
-            self.documents[i].similarity_parent = self.comparator.similarity(self.documents[i], self.documents[exemplar[1]])
-            if self.documents[i].exemplar != self.documents[i]:
-                self.documents[i].exemplar.children.append(self.documents[i])
+            i.exemplar = exemplar[1]
+            i.responsibility_parent = self.responsibility[i][exemplar[1]]
+            i.availability_parent = self.availability[i][exemplar[1]]
+            i.similarity_parent = self.comparator.similarity(i, exemplar[1])
+            if not i.exemplar is i:
+                i.exemplar.children.append(i)
 
         self.lock.release()
 
@@ -124,6 +144,12 @@ class DocComparator(object):
             other_words = doc1.words() ^ doc2.words()
             intersection_word_weight = sum(self.index.tf_idf(word) for word in intersection_words)
             other_words_weight = sum(self.index.tf_idf(word) for word in other_words)
-            self.cache[(doc1, doc2)] = intersection_word_weight / (intersection_word_weight + other_words_weight + 0.01)
-            self.cache[(doc2, doc1)] = self.cache[(doc1, doc2)]
+            sim = intersection_word_weight / (intersection_word_weight + other_words_weight + 0.01)
+
+            if sim >= settings.CLUSTERING_MINIMUM_SIMILARITY:
+                self.cache[(doc1, doc2)] = sim
+                self.cache[(doc2, doc1)] = sim
+
+            return sim
+
         return self.cache[(doc1, doc2)]
