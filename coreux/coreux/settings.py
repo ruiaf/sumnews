@@ -37,8 +37,18 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.staticfiles',
     'sumnews',
-    'registration'
+    'registration',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = ( "django.contrib.auth.context_processors.auth",
+                                "django.core.context_processors.debug",
+                                "django.core.context_processors.i18n",
+                                "django.core.context_processors.media",
+                                "django.core.context_processors.static",
+                                "django.core.context_processors.tz",
+                                "django.contrib.messages.context_processors.messages",
+                                "sumnews.context_processors.edition.edition_list",
+                                "sumnews.context_processors.edition.selected_edition")
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -47,6 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "sumnews.middleware.edition.EditionMiddleware",
 )
 
 ROOT_URLCONF = 'coreux.urls'
@@ -93,3 +104,15 @@ if DEBUG:
     logging.root.setLevel(logging.INFO)
 else:
     logging.root.setLevel(logging.WARNING)
+
+editions = [
+    ("bg-bg", "Български"),
+    ("en-gb", "English - United Kingdom"),
+    ("en-us", "English - United States"),
+    ("hu-hu", "Magyar"),
+    ("pt-pt", "Português - Portugal"),
+    ("pt-br", "Português - Brasil"),
+    ("uk-uk", "Українська"),
+]
+
+default_edition = "en-us"

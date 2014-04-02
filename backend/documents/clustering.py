@@ -115,7 +115,7 @@ class ClusterMaker(threading.Thread):
                                         (sum_value - max(0.0, self.responsibility[k][k]))))
 
         for i in self.documents:
-            if not i.exemplar is i:
+            if not i.exemplar is i and i in i.exemplar.children:
                 i.exemplar.children.remove(i)
 
             exemplar = max((self.availability[i][k_prime] + self.responsibility[i][k_prime], k_prime)

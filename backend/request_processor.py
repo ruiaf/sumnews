@@ -21,15 +21,26 @@ class RequestProcessor(object):
 
         response = {'result': 'error'}
 
+        edition = request.get('edition', None)
+        if not edition:
+            logging.error("Request without edition")
+            return response
+
+        if request['type'] == "stats":
+            response = {
+                "result": "success",
+                "content": document_repository[edition].stats()
+            }
+
         if request['type'] == "latest_news":
             response = {
                 "result": "success",
-                "content": [doc.as_dictionary() for doc in document_repository.recent_documents()]
+                "content": [doc.as_dictionary() for doc in document_repository[edition].recent_documents()]
             }
 
         if request['type'] == "latest_clusters":
             results = []
-            for cluster in document_repository.recent_clusters():
+            for cluster in document_repository[edition].recent_clusters():
                 result = []
                 for doc in cluster:
                     result.append(doc.as_dictionary())
@@ -42,7 +53,7 @@ class RequestProcessor(object):
 
         if request['type'] == "search_clusters":
             results = []
-            for cluster in document_repository.search_clusters(request['query']):
+            for cluster in document_repository[edition].search_clusters(request['query']):
                 result = []
                 for doc in cluster:
                     result.append(doc.as_dictionary())
@@ -56,11 +67,11 @@ class RequestProcessor(object):
         if request['type'] == "search":
             response = {
                 "result": "success",
-                "content": [doc.as_dictionary() for doc in document_repository.search(request['query'])]
+                "content": [doc.as_dictionary() for doc in document_repository[edition].search(request['query'])]
             }
 
         if request['type'] == "search_guid":
-            doc = document_repository.search_guid(request['guid'])
+            doc = document_repository[edition].search_guid(request['guid'])
             if not doc:
                 return response
             response = {

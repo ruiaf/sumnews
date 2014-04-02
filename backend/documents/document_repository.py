@@ -100,5 +100,17 @@ class DocumentRepository(object):
         self.index.clear()
         self.clustering.clear()
         for doc in self.documents:
+            doc.exemplar = doc
+            doc.children = []
             self.index.add(doc)
             self.clustering.add(doc)
+
+    def stats(self):
+        stats = {
+            "Number of indexed documents": self.index.n_documents,
+            "Number of indexed words": self.index.n_words,
+            "Number of clustered documents": len(self.clustering.documents)
+        }
+
+        return stats
+

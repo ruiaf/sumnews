@@ -11,7 +11,10 @@ from documents.document_repository import DocumentRepository
 
 class StateManager(threading.Thread):
     def __init__(self, state_file, *args, **kwargs):
-        self.repository = DocumentRepository()
+        self.repository = {}
+        for (edition_code, edition_name) in settings.editions:
+            self.repository[edition_code] = DocumentRepository()
+
         self.feeds = FeedManager(self.repository)
         self.state_file = state_file
 
@@ -20,31 +23,40 @@ class StateManager(threading.Thread):
 
         threading.Thread.__init__(self, *args, **kwargs)
 
-    def get_state(self):
-        return self.repository, self.feeds
-
     def run(self):
         self.feeds.start()
-        self.repository.clustering.start()
+        for (edition_code, edition_name) in settings.editions:
+            self.repository[edition_code].clustering.start()
+
         while True:
             self.serialize()
             time.sleep(settings.STATE_SAVER_INTERVAL)
 
     def run_for_unittest(self):
-        self.repository.clustering.run_for_unittest()
+        for (edition_code, edition_name) in settings.editions:
+            self.repository[edition_code].clustering.run_for_unittest()
 
     def serialize(self):
         logging.info("Serializing to %s", settings.STATE_FILE)
-        self.feeds.lock.acquire()
         ts = time.time()
-        self.repository.lock.acquire()
-        state = (self.repository.documents, self.feeds.feeds)
+        self.feeds.lock.acquire()
+        total_docs = 0
+        docs = []
+        for (edition_code, edition_name) in settings.editions:
+            self.repository[edition_code].lock.acquire()
+            docs.append((edition_code, self.repository[edition_code].documents))
+            total_docs += len(self.repository[edition_code].documents)
+
+        state = (docs, self.feeds.feeds)
         output_file = open(settings.STATE_FILE, 'wb')
         pickle.dump(state, output_file)
         output_file.close()
-        logging.info("Serialized %d feeds and %d docs", len(self.feeds.feeds), len(self.repository.documents))
+        logging.info("Serialized %d feeds and %d docs", len(self.feeds.feeds), total_docs)
+
+        for (edition_code, edition_name) in settings.editions:
+            self.repository[edition_code].lock.release()
         self.feeds.lock.release()
-        self.repository.lock.release()
+
         te = time.time()
         logging.info("Serializing locked the state for %2.2f seconds", te - ts)
 
@@ -52,8 +64,9 @@ class StateManager(threading.Thread):
         logging.info("Deserializing from %s", self.state_file)
         input_file = open(self.state_file, 'rb')
         (docs, feeds) = pickle.load(input_file)
-        logging.info("Deserialized %d feeds and %d docs", len(feeds), len(docs))
+        logging.info("Deserialized %d feeds and %d editions", len(feeds), len(docs))
         input_file.close()
-        self.repository.documents = docs
-        self.repository.rebuild()
+        for (edition_code, edition_docs) in docs:
+            self.repository[edition_code].documents = edition_docs
+            self.repository[edition_code].rebuild()
         self.feeds.feeds = feeds

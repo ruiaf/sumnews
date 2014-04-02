@@ -6,6 +6,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{% static "js/kickstart.js" %}"></script>
     <script src="{% static "js/searchbox.js" %}"></script>
+    <script src="{% static "js/edition.js" %}"></script>
+    {% block javascript %}
+    {% endblock %}
     <link rel="stylesheet" href="{% static "css/kickstart.css" %}" media="all" />
     <link rel="stylesheet" href="{% static "css/style.css" %}" media="all" />
     <title>Sum News</title>
@@ -25,7 +28,17 @@
         <li><a href="/login/">Log in</a></li>
         <li><a href="/signup/">Sign up</a></li>
     {% endif %}
+        <li><a href="/debug/">Debug</a></li>
     {% endblock %}
+
+    <form id="editionform">
+    <select id="edition">
+       {% for edition_code, edition_name in editions %}
+           <option value="{{ edition_code }}" {% ifequal edition_code edition %} selected {% endifequal %}> {{ edition_name }}</option>
+       {% endfor %}
+    </select>
+    <input id="editionsumbmit" type="submit" style="display:none;"/>
+    </form>
 </ul>
 </nav>
 

@@ -251,3 +251,13 @@ display:inline-block;
 background: inherit;
 color: white;
 }
+
+#graphcontainer {
+    max-width: 800px;
+    height: 400px;
+    margin: auto;
+  }
+
+#editionform {
+    display: inline;
+}

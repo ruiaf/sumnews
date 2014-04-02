@@ -1,21 +1,10 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% load tags %}
 
 {% block content %}
                 {% for cluster in cluster_list %}
-                    <article class="post clearfix">
-                    {% for news in cluster %}
-                        {% if forloop.first %}
-                            <div class="meta">{{news.publish_date|naturaltime}}</div>
-                            <h4><a href="/article/{{ news.guid }}/">{{news.title}}</a></h4>
-                        {% endif %}
-                        <p>{{news.content}} &mdash; from <a href="{{news.source_url}}">{{ news.provider }}</a></p>
-                    {% endfor %}
-
-                    <a href=""><i class="icon-2x icon-facebook-sign" ></i></a>
-                    <a href=""><i class="icon-2x icon-twitter-sign" ></i></a>
-                    <a href=""><i class="icon-2x icon-google-plus-sign" ></i></a>
-                    </article>
+                    {% show_cluster cluster %}
                 {% empty %}
                 <article class="post clearfix">
                     <h4>Unable to find</h4>

@@ -13,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     url(r'^signup/$', signup),
+    url(r'^debug/$', debug),
+    url(r'^edition/(?P<edition>.*)/$', set_edition),
     url(r'^search/(?P<query>.*)/$', search),
     url(r'^article/(?P<guid>.*)/$', article),
 )

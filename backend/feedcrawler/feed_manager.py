@@ -4,6 +4,7 @@ Continuously monitors feeds and adds new content to the document_repository
 
 import time
 import threading
+from copy import copy
 
 from feedcrawler import settings
 import settings as main_settings
@@ -33,6 +34,8 @@ class FeedManager(threading.Thread):
             self.lock.acquire()
             for feed in self.feeds:
                 documents = feed.update()
-                self.document_repository.add(documents)
+                for edition in feed.editions:
+                    docs = [copy(doc) for doc in documents]
+                    self.document_repository[edition].add(docs)
             self.lock.release()
             time.sleep(main_settings.FEED_CRAWLER_INTERVAL)

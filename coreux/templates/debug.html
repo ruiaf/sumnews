@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block javascript %}
+    <script src="{% static "js/cluster_graph.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+
+                <article class="post clearfix">
+                    <h4>Statistics</h4>
+                    <ul>
+                        {% for key, value in stats.items %}
+                            <li>{{ key }}: {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+
+                <article class="post clearfix">
+
+                    <canvas id="cluster_graph" width="150" height="150">
+
+                    </canvas>
+
+                </article>
+
+{% endblock %}

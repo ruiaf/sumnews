@@ -19,3 +19,13 @@ CLUSTERING_DEFAULT_PREFERENCE = 0.10
 CLUSTERING_MINIMUM_SIMILARITY = 0.10
 
 logging.root.setLevel(logging.INFO)
+
+editions = [
+    ("bg-bg", "Български"),
+    ("en-gb", "English - United Kingdom"),
+    ("en-us", "English - United States"),
+    ("hu-hu", "Magyar"),
+    ("pt-pt", "Português - Portugal"),
+    ("pt-br", "Português - Brasil"),
+    ("uk-uk", "Українська"),
+]
