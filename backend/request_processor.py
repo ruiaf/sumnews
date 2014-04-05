@@ -39,12 +39,7 @@ class RequestProcessor(object):
             }
 
         if request['type'] == "latest_clusters":
-            results = []
-            for cluster in document_repository[edition].recent_clusters():
-                result = []
-                for doc in cluster:
-                    result.append(doc.as_dictionary())
-                results.append(result)
+            results = [summary.as_dictionary() for summary in document_repository[edition].recent_clusters() ]
 
             response = {
                 "result": "success",

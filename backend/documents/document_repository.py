@@ -8,6 +8,7 @@ import logging
 import re
 from datastructures.inverted_index import InvertedIndex
 from documents.clustering import ClusterMaker
+from documents import summarization
 
 
 class DocumentRepository(object):
@@ -18,7 +19,7 @@ class DocumentRepository(object):
     def __init__(self):
         self.documents = []
         self.index = InvertedIndex()
-        self.clustering = ClusterMaker(self)
+        self.clustering = ClusterMaker(self.index)
         self.lock = threading.Lock()
 
     def add(self, document_list):
@@ -57,7 +58,10 @@ class DocumentRepository(object):
         clusters = [(len(value), value) for value in clusters.values()]
         clusters.sort(reverse=True)
         clusters = clusters[:count]
-        return [value for (x, value) in clusters]
+        summaries = []
+        for cluster in clusters:
+            summaries.append(summarization.summarize(cluster[1], self.index))
+        return summaries
 
     def search(self, query, count=10):
         """
@@ -109,7 +113,7 @@ class DocumentRepository(object):
         stats = {
             "Number of indexed documents": self.index.n_documents,
             "Number of indexed words": self.index.n_words,
-            "Number of clustered documents": len(self.clustering.documents)
+            "Number of clustered documents": len(self.clustering.objects)
         }
 
         return stats

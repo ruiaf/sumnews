@@ -6,10 +6,10 @@ import utils
 
 
 class ClusterMaker(threading.Thread):
-    def __init__(self, document_repository, *args, **kwargs):
-        self.document_repository = document_repository
-        self.comparator = DocComparator(self.document_repository.index)
-        self.documents = []
+    def __init__(self, index, *args, **kwargs):
+        self.index = index
+        self.comparator = DocComparator(self.index)
+        self.objects = []
         self.responsibility = {}
         self.availability = {}
         self.lock = threading.Lock()
@@ -22,27 +22,27 @@ class ClusterMaker(threading.Thread):
         self.add_list.append(doc)
         self.add_list_lock.release()
 
-    def _process_add_list(self):
+    def process_add_list(self):
         self.add_list_lock.acquire()
         self.lock.acquire()
 
         ts = time.time()
-        for doc in self.add_list:
-            self.documents.append(doc)
-            self.responsibility[doc] = {}
-            self.availability[doc] = {}
-            self.responsibility[doc][doc] = 0.0
-            self.availability[doc][doc] = 0.0
-            for other_doc in self.documents:
-                if self.comparator.similarity(doc, other_doc) >= settings.CLUSTERING_MINIMUM_SIMILARITY:
-                    self.responsibility[doc][other_doc] = 0.0
-                    self.availability[doc][other_doc] = 0.0
-                    self.responsibility[other_doc][doc] = 0.0
-                    self.availability[other_doc][doc] = 0.0
+        for obj in self.add_list:
+            self.objects.append(obj)
+            self.responsibility[obj] = {}
+            self.availability[obj] = {}
+            self.responsibility[obj][obj] = 0.0
+            self.availability[obj][obj] = 0.0
+            for other_doc in self.objects:
+                if self.comparator.similarity(obj, other_doc) >= settings.CLUSTERING_MINIMUM_SIMILARITY:
+                    self.responsibility[obj][other_doc] = 0.0
+                    self.availability[obj][other_doc] = 0.0
+                    self.responsibility[other_doc][obj] = 0.0
+                    self.availability[other_doc][obj] = 0.0
 
         te = time.time()
         if len(self.add_list):
-            logging.info("Finished adding %d documents to clustering in %2.2f seconds", len(self.add_list), te - ts)
+            logging.info("Finished adding %d objects to clustering in %2.2f seconds", len(self.add_list), te - ts)
 
         self.add_list = []
         self.add_list_lock.release()
@@ -52,8 +52,8 @@ class ClusterMaker(threading.Thread):
         logging.info("Clearing clusters")
         self.lock.acquire()
         self.add_list_lock.acquire()
-        self.comparator = DocComparator(self.document_repository.index)
-        self.documents = []
+        self.comparator = DocComparator(self.index)
+        self.objects = []
         self.responsibility = {}
         self.availability = {}
         self.add_list = []
@@ -63,25 +63,25 @@ class ClusterMaker(threading.Thread):
     def run(self):
         while True:
             ts = time.time()
-            self._iterate_affinity()
+            self.iterate_affinity()
             te = time.time()
 
-            logging.info("Finished affinity iteration for: %d documents in %2.2f seconds", len(self.documents), te - ts)
+            logging.info("Finished affinity iteration for: %d documents in %2.2f seconds", len(self.objects), te - ts)
 
-            self._process_add_list()
+            self.process_add_list()
             time.sleep(settings.CLUSTERING_INTERVAL)
 
     def run_for_unittest(self):
         for i in range(10):
             ts = time.time()
-            self._iterate_affinity()
+            self.iterate_affinity()
             te = time.time()
-            logging.info("Finished affinity iteration for: %d documents in %2.2f seconds", len(self.documents), te - ts)
-            self._process_add_list()
+            logging.info("Finished affinity iteration for: %d documents in %2.2f seconds", len(self.objects), te - ts)
+            self.process_add_list()
 
-    def _iterate_affinity(self):
+    def iterate_affinity(self):
         self.lock.acquire()
-        for i in self.documents:
+        for i in self.objects:
             values = utils.max2((self.availability[i][k_prime] + self.comparator.similarity(i, k_prime),
                                 k_prime) for k_prime in self.responsibility[i].keys())
 
@@ -96,7 +96,7 @@ class ClusterMaker(threading.Thread):
                 self.responsibility[i][k] = ((settings.CLUSTERING_DUMPING_FACTOR * self.responsibility[i][k]) +
                                              (1 - settings.CLUSTERING_DUMPING_FACTOR) * (sim - max_value))
 
-        for k in self.documents:
+        for k in self.objects:
             sum_value = 0.0
             for i_prime in self.responsibility[k].keys():
                 sum_value += max(0.0, self.responsibility[i_prime][k])
@@ -114,7 +114,7 @@ class ClusterMaker(threading.Thread):
                                        ((1 - settings.CLUSTERING_DUMPING_FACTOR) *
                                         (sum_value - max(0.0, self.responsibility[k][k]))))
 
-        for i in self.documents:
+        for i in self.objects:
             if not i.exemplar is i and i in i.exemplar.children:
                 i.exemplar.children.remove(i)
 

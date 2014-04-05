@@ -5,6 +5,7 @@ Represents and manages a news document
 from datetime import datetime
 from dateutil import tz
 import re
+from crawler import utils
 
 
 class Document(object):
@@ -29,9 +30,16 @@ class Document(object):
         self.responsibility_parent = None
         self.availability_parent = None
         self.similarity_parent = None
+        self._sentences = None
 
     def __lt__(self, other):
         return self.publish_date < other.publish_date
+
+    def sentences(self):
+        tmp_sentences = [Sentence(utils.strip_html(self.title))]
+        tmp_sentences.extend([Sentence(utils.strip_html(s)) for s in self.original_summary.split('[.]') if len(s.strip()) > 0])
+        tmp_sentences.extend([Sentence(utils.strip_html(s)) for s in self.content.split('[.]') if len(s.strip()) > 0])
+        return tmp_sentences
 
     def words(self):
             if self._words is None:
@@ -59,3 +67,22 @@ class Document(object):
         }
 
         return data
+
+
+class Sentence(object):
+    def __init__(self, text):
+        self.text = text
+        self._words = None
+        self.exemplar = self
+        self.children = []
+        self.responsibility_parent = None
+        self.availability_parent = None
+        self.similarity_parent = None
+
+    def words(self):
+            if self._words is None:
+                self._words = set(w.lower().strip() for w in re.findall(r"[\w]+", self.text))
+            return self._words
+
+    def __lt__(self, other):
+        return True

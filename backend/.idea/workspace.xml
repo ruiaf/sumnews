@@ -2,21 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1dfa0eef-b8ff-42bd-a201-225440eaef35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crawler/crawler_manager.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crawler/document_crawler.py" />
-      <change type="DELETED" beforePath="E:\sumnews\backend\feedcrawler\feed_manager.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/documents/summarization.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/documents/summary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/database/db.sqlite3" afterPath="$PROJECT_DIR$/../coreux/database/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/state.pickle" afterPath="$PROJECT_DIR$/database/state.pickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/backend.iml" afterPath="$PROJECT_DIR$/.idea/backend.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documents/clustering.py" afterPath="$PROJECT_DIR$/documents/clustering.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documents/document.py" afterPath="$PROJECT_DIR$/documents/document.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state_manager.py" afterPath="$PROJECT_DIR$/state_manager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documents/document_repository.py" afterPath="$PROJECT_DIR$/documents/document_repository.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/request_processor.py" afterPath="$PROJECT_DIR$/request_processor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/templates/single_cluster.html" afterPath="$PROJECT_DIR$/../coreux/templates/single_cluster.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../coreux/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../coreux/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\sumnews\backend\feedcrawler\__init__.py" afterPath="$PROJECT_DIR$/crawler/__init__.py" />
-      <change type="MOVED" beforePath="E:\sumnews\backend\feedcrawler\feed.py" afterPath="$PROJECT_DIR$/crawler/feed.py" />
-      <change type="MOVED" beforePath="E:\sumnews\backend\feedcrawler\settings.py" afterPath="$PROJECT_DIR$/crawler/settings.py" />
-      <change type="MOVED" beforePath="E:\sumnews\backend\feedcrawler\utils.py" afterPath="$PROJECT_DIR$/crawler/utils.py" />
     </list>
     <ignored path="backend.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +33,7 @@
     <SUITE FILE_PATH="coverage/backend$Unittest_TestSimilarityDistance_test_very_different_docs.coverage" NAME="Unittest TestSimilarityDistance.test_very_different_docs Coverage Results" MODIFIED="1395252815759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/backend$Unittests_in_TestSimilarityDistance__1_.coverage" NAME="Unittests in TestSimilarityDistance (1) Coverage Results" MODIFIED="1395250764691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/backend$Unittests_in_D__projects_sumnews_backend.coverage" NAME="Unittests in D:\projects\sumnews\backend\tests Coverage Results" MODIFIED="1395254544647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/backend$Backend.coverage" NAME="Backend Coverage Results" MODIFIED="1396708204246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend$Backend.coverage" NAME="Backend Coverage Results" MODIFIED="1396717293398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -51,28 +47,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="clustering.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/clustering.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="65" selection-start="1137" selection-end="1137" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1836">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="document.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="document.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/documents/document.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="34" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
-              <folding />
+            <state line="87" column="19" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.7838983" vertical-offset="1109" max-vertical-offset="1581">
+              <folding>
+                <element signature="e#48#77#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="state_manager.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/state_manager.py">
+      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawler/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="44" selection-start="2558" selection-end="2558" vertical-scroll-proportion="0.0" vertical-offset="717" max-vertical-offset="1309">
+            <state line="3" column="14" selection-start="16" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
               <folding />
             </state>
           </provider>
@@ -81,7 +70,7 @@
       <file leaf-file-name="backend.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="39" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="646">
+            <state line="27" column="39" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -93,6 +82,8 @@
             <state line="51" column="58" selection-start="1609" selection-end="1609" vertical-scroll-proportion="0.0" vertical-offset="497" max-vertical-offset="969">
               <folding>
                 <element signature="e#85#96#0" expanded="true" />
+                <marker date="1396707645844" expanded="true" signature="343:434" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1396707645844" expanded="true" signature="905:1610" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -104,16 +95,10 @@
             <state line="23" column="34" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="833">
               <folding>
                 <element signature="e#1#27#0" expanded="true" />
+                <marker date="1396707669268" expanded="true" signature="170:1471" placeholder="..." />
+                <marker date="1396707669268" expanded="true" signature="439:861" placeholder="..." />
+                <marker date="1396707669268" expanded="true" signature="1088:1471" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="32" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -127,12 +112,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feed.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/crawler/feed.py">
+      <file leaf-file-name="summarization.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/documents/summarization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="65" selection-start="2510" selection-end="2520" vertical-scroll-proportion="0.6122881" vertical-offset="816" max-vertical-offset="1360">
+            <state line="23" column="53" selection-start="688" selection-end="692" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="578">
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="summary.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/documents/summary.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="19" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="document_repository.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/documents/document_repository.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="43" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="2142">
+              <folding>
+                <element signature="e#34#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feed.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawler/feed.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="0" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1360">
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+                <marker date="1396708198770" expanded="true" signature="291:2825" placeholder="..." />
+                <marker date="1396708198770" expanded="true" signature="1513:2825" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -181,19 +201,22 @@
         <option value="$PROJECT_DIR$/request_manager.py" />
         <option value="$PROJECT_DIR$/tests/clustering.py" />
         <option value="$PROJECT_DIR$/datastructures/inverted_index.py" />
-        <option value="$PROJECT_DIR$/documents/document_repository.py" />
         <option value="$PROJECT_DIR$/state_manager.py" />
-        <option value="$PROJECT_DIR$/request_processor.py" />
         <option value="$PROJECT_DIR$/feedcrawler/feed.py" />
-        <option value="$PROJECT_DIR$/documents/clustering.py" />
         <option value="$PROJECT_DIR$/feedcrawler/settings.py" />
         <option value="$PROJECT_DIR$/feedcrawler/feed_manager.py" />
         <option value="$PROJECT_DIR$/crawler/feed_manager.py" />
         <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/documents/document.py" />
         <option value="$PROJECT_DIR$/crawler/crawler_manager.py" />
         <option value="$PROJECT_DIR$/crawler/document_crawler.py" />
         <option value="$PROJECT_DIR$/crawler/feed.py" />
+        <option value="$PROJECT_DIR$/documents/cluster.py" />
+        <option value="$PROJECT_DIR$/documents/clustering.py" />
+        <option value="$PROJECT_DIR$/request_processor.py" />
+        <option value="$PROJECT_DIR$/documents/document_repository.py" />
+        <option value="$PROJECT_DIR$/documents/summary.py" />
+        <option value="$PROJECT_DIR$/documents/summarization.py" />
+        <option value="$PROJECT_DIR$/documents/document.py" />
       </list>
     </option>
   </component>
@@ -729,7 +752,11 @@
       <created>1395792348312</created>
       <updated>1395792348312</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Crawling document content">
+      <created>1396708757790</created>
+      <updated>1396708757790</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -740,10 +767,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3285528" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.250625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.168125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4928292" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -781,7 +808,8 @@
     <MESSAGE value="single article page and debug" />
     <MESSAGE value="fix unit tests" />
     <MESSAGE value="make clustering use a sparse matrix" />
-    <option name="LAST_COMMIT_MESSAGE" value="make clustering use a sparse matrix" />
+    <MESSAGE value="Crawling document content" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crawling document content" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -789,30 +817,11 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/documents/document_repository.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="36" selection-start="2324" selection-end="2324" vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2074">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/state_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="47" selection-start="1757" selection-end="1757" vertical-scroll-proportion="0.0" vertical-offset="478" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="36" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documents/clustering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="75" selection-start="4336" selection-end="4336" vertical-scroll-proportion="0.0" vertical-offset="1700" max-vertical-offset="2431" />
+        <state line="100" column="75" selection-start="4336" selection-end="4336" vertical-scroll-proportion="0.0" vertical-offset="1700" max-vertical-offset="2431">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
@@ -822,7 +831,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/datastructures/inverted_index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="27" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="697" />
+        <state line="33" column="27" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="697">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/request_processor.py">
@@ -842,7 +853,9 @@
     <entry file="file://$PROJECT_DIR$/documents/document_repository.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="44" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="1751">
-          <folding />
+          <folding>
+            <element signature="e#34#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -874,7 +887,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/documents/clustering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="63" selection-start="5876" selection-end="5876" vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="2363" />
+        <state line="131" column="63" selection-start="5876" selection-end="5876" vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="2363">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
@@ -884,7 +899,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/datastructures/inverted_index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="27" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="697" />
+        <state line="33" column="27" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="697">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/request_processor.py">
@@ -904,7 +921,9 @@
     <entry file="file://$PROJECT_DIR$/documents/document_repository.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="44" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0" vertical-offset="274" max-vertical-offset="1751">
-          <folding />
+          <folding>
+            <element signature="e#34#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -921,7 +940,9 @@
     <entry file="file://$PROJECT_DIR$/documents/document.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="347" selection-end="347" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
+          <folding>
+            <element signature="e#48#77#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -947,7 +968,9 @@
     <entry file="file://$PROJECT_DIR$/documents/document_repository.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="13" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="255">
-          <folding />
+          <folding>
+            <element signature="e#34#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -969,11 +992,6 @@
     <entry file="file://$PROJECT_DIR$/../coreux/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="15" selection-start="39" selection-end="39" vertical-scroll-proportion="0.05821918" vertical-offset="0" max-vertical-offset="1037" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crawler/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="66" selection-start="174" selection-end="174" vertical-scroll-proportion="0.16721311" vertical-offset="0" max-vertical-offset="610" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
@@ -1001,54 +1019,16 @@
         <state line="14" column="26" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/clustering.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="65" selection-start="1137" selection-end="1137" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1768">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/request_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="56" selection-start="1361" selection-end="1361" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="39" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/request_processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="38" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/datastructures/inverted_index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documents/clustering.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="0" selection-start="5323" selection-end="5323" vertical-scroll-proportion="0.6486486" vertical-offset="1741" max-vertical-offset="2669" />
+        <state line="31" column="0" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/state_manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="44" selection-start="2558" selection-end="2558" vertical-scroll-proportion="0.0" vertical-offset="717" max-vertical-offset="1309">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documents/document_repository.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="47" selection-start="662" selection-end="662" vertical-scroll-proportion="-12.24" vertical-offset="102" max-vertical-offset="1989">
           <folding />
         </state>
       </provider>
@@ -1067,13 +1047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/documents/document.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="34" selection-start="325" selection-end="325" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crawler/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="26" selection-start="3482" selection-end="3485" vertical-scroll-proportion="0.0" vertical-offset="1840" max-vertical-offset="2312">
@@ -1086,6 +1059,8 @@
         <state line="51" column="58" selection-start="1609" selection-end="1609" vertical-scroll-proportion="0.0" vertical-offset="497" max-vertical-offset="969">
           <folding>
             <element signature="e#85#96#0" expanded="true" />
+            <marker date="1396707645844" expanded="true" signature="343:434" placeholder="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1396707645844" expanded="true" signature="905:1610" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1095,15 +1070,105 @@
         <state line="23" column="34" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="833">
           <folding>
             <element signature="e#1#27#0" expanded="true" />
+            <marker date="1396707669268" expanded="true" signature="170:1471" placeholder="..." />
+            <marker date="1396707669268" expanded="true" signature="439:861" placeholder="..." />
+            <marker date="1396707669268" expanded="true" signature="1088:1471" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawler/feed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="65" selection-start="2510" selection-end="2520" vertical-scroll-proportion="0.6122881" vertical-offset="816" max-vertical-offset="1360">
+        <state line="67" column="0" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1360">
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+            <marker date="1396708198770" expanded="true" signature="291:2825" placeholder="..." />
+            <marker date="1396708198770" expanded="true" signature="1513:2825" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documents/clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="24" selection-start="639" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="2669">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="39" selection-start="777" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="65" selection-start="1137" selection-end="1137" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1768">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/request_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="0" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.74788135" vertical-offset="395" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python33/Lib/socketserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="344" column="0" selection-start="11820" selection-end="11820" vertical-scroll-proportion="0.33262712" vertical-offset="5623" max-vertical-offset="12699">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/request_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="44" selection-start="1039" selection-end="1052" vertical-scroll-proportion="0.0" vertical-offset="501" max-vertical-offset="1564">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawler/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="14" selection-start="16" selection-end="26" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documents/document_repository.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="43" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="2142">
+          <folding>
+            <element signature="e#34#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documents/summary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="19" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documents/summarization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="53" selection-start="688" selection-end="692" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="578">
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documents/document.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="19" selection-start="2905" selection-end="2905" vertical-scroll-proportion="0.7838983" vertical-offset="1109" max-vertical-offset="1581">
+          <folding>
+            <element signature="e#48#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
