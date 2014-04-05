@@ -37,6 +37,7 @@ class Document(object):
             if self._words is None:
                 self._words = set(w.lower().strip() for w in re.findall(r"[\w]+", self.content))
                 self._words |= set(w.lower().strip() for w in re.findall(r"[\w]+", self.title))
+                self._words |= set(w.lower().strip() for w in re.findall(r"[\w]+", self.original_summary))
             return self._words
 
     def as_dictionary(self):

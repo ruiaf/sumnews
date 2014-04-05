@@ -127,9 +127,4 @@ FEEDS = [
         "url": "http://www.vg.hu/rss/vg.xml",
         "editions": ["hu-hu"],
     },
-    {
-        "name": "Blikk",
-        "url": "http://www.blikk.hu/rss/blikk",
-        "editions": ["hu-hu"],
-    },
 ]

@@ -8,7 +8,7 @@ import hashlib
 from dateutil import parser as dateparser, tz
 
 from documents.document import Document
-from feedcrawler.utils import strip_html
+from crawler.utils import strip_html
 
 
 class Feed(object):
@@ -58,12 +58,12 @@ class Feed(object):
 
                 new_doc.source_url = item.find("link").text or ""
 
-                new_doc.content = strip_html(item.find("description").text or "")
+                new_doc.original_summary = strip_html(item.find("description").text or "")
 
                 if item.find("guid"):
                     new_doc.guid = hashlib.md5(item.find("guid").encode('utf-8')).hexdigest()
                 else:
-                    new_doc.guid = hashlib.md5(new_doc.content.encode('utf-8')).hexdigest()
+                    new_doc.guid = hashlib.md5(new_doc.source_url.encode('utf-8')).hexdigest()
                 new_doc.provider = self.name
 
                 if new_doc.guid not in self.processed_guids:

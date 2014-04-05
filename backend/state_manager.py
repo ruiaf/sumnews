@@ -5,7 +5,7 @@ import logging
 import os.path
 
 import settings
-from feedcrawler.feed_manager import FeedManager
+from crawler.crawler_manager import CrawlerManager
 from documents.document_repository import DocumentRepository
 
 
@@ -15,7 +15,7 @@ class StateManager(threading.Thread):
         for (edition_code, edition_name) in settings.editions:
             self.repository[edition_code] = DocumentRepository()
 
-        self.feeds = FeedManager(self.repository)
+        self.feeds = CrawlerManager(self.repository)
         self.state_file = state_file
 
         if os.path.isfile(self.state_file):
