@@ -2,7 +2,7 @@
 
 <article class="post clearfix">
     <div class="meta">{{doc.publish_date|naturaltime}}</div>
-    <h4><a href="/article/{{ doc.guid }}/">{{doc.title}}</a></h4>
+    <h4><a href="/article/{{ edition }}/{{ doc.guid }}/">{{doc.title}}</a></h4>
     <p>{{doc.content}} &mdash; from <a href="{{doc.source_url}}">{{ doc.provider }}</a></p>
 
     <ul>

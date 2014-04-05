@@ -4,22 +4,22 @@
 
 {% block content %}
 
-                {% show_doc article %}
+                {% show_doc article edition %}
 
                 <h3>Related News</h3>
                 {% ifnotequal parent.guid doc.guid%}
-                    {% show_doc parent %}
+                    {% show_doc parent edition %}
                 {% endifnotequal %}
 
                 {% if children %}
                 {% for child in children %}
-                    {% show_doc child %}
+                    {% show_doc child edition %}
                 {% endfor %}
                 {% endif %}
 
                 {% if siblings %}
                 {% for sister in siblings %}
-                    {% show_doc sister %}
+                    {% show_doc sister edition %}
                 {% endfor %}
                 {% endif %}
 {% endblock %}

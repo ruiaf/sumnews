@@ -16,5 +16,5 @@ urlpatterns = patterns('',
     url(r'^debug/$', debug),
     url(r'^edition/(?P<edition>.*)/$', set_edition),
     url(r'^search/(?P<query>.*)/$', search),
-    url(r'^article/(?P<guid>.*)/$', article),
+    url(r'^article/(?P<edition>.*)/(?P<guid>.*)/$', article),
 )
